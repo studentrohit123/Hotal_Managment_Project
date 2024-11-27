@@ -20,6 +20,11 @@ class RoomsController < ApplicationController
     end
   end
 
+  def show
+    @hotels = Hotel.find(params[:id])
+    @rooms = @hotels.rooms
+  end
+
   def edit
     @rooms = Room.all
     @hotels = Hotel.all

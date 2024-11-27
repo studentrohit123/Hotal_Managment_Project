@@ -1,0 +1,22 @@
+<h2>Rooms</h2>
+<% if @rooms.any? %>
+  <ul>
+    <% @rooms.each do |room| %>
+      <li>
+        <%# <strong>Bus id:</strong> <%= bus.id %>
+        <strong>Room Number:</strong> <%= room.room_number %><br>
+        <strong>Room Type:</strong> <%= room.room_type %><br>
+        <strong>Price:</strong> <%= room.price %><br>
+        <strong>Capacity:</strong> <%= room.capacity %><br>
+        <strong>
+        <% if room.image.attached? %> 
+              <%= image_tag room.image, size: "300x300", class: "img-thumbnail" %>
+            <% end %>
+        </strong><br>
+      </li>
+      <%= link_to "Room Details", room_path(room), class: "btn btn-primary" %>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No room available.</p>
+<% end %>

@@ -1,0 +1,23 @@
+<h2>Hotels</h2>
+<% if @hotels.any? %>
+  <ul>
+    <% @hotels.each do |hotel| %>
+      <li>
+        <%# <strong>Bus id:</strong> <%= bus.id %>
+        <strong>Hotel Name:</strong> <%= hotel.name %><br>
+        <strong>Hotel Address:</strong> <%= hotel.address %><br>
+        <strong>Contact Number:</strong> <%= hotel.contact_number %><br>
+        <strong>Description:</strong> <%= hotel.description %><br>
+        <strong>Rating:</strong> <%= hotel.rating %><br>
+        <strong>
+        <% if hotel.image.attached? %> 
+              <%= image_tag hotel.image, size: "300x300", class: "img-thumbnail" %>
+            <% end %>
+        </strong><br>
+      </li>
+      <%= link_to "Room Details", room_path(hotel), class: "btn btn-primary" %>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No Hotels available.</p>
+<% end %>

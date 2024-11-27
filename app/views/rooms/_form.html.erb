@@ -34,11 +34,13 @@
       <%= form.collection_select :hotel_id, @hotels, :id, :hotel_names, prompt: "Choose a hotel" %>
     </div>
   </div>
-  <div>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= form.label :image %>
+        <%= form.file_field :image %>
+      </div>
+    </div>
   </div>
-</div>
 <div class="row">
   <div class="col-lg-12 mt-4">
     <%= form.submit class: 'btn btn-primary btn-lg rounded-0' %>
