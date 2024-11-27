@@ -1,0 +1,36 @@
+<%= link_to "Add New Room", new_room_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+<%= link_to "Home", root_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Room_number</th>
+        <th>Room_type</th>
+        <th>price</th>
+        <th>capacity</th>
+        <th>image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= room.room_number %></td>
+          <td><%= room.room_type %></td>
+          <td><%= room.price %></td>
+          <td><%= room.capacity %></td>
+          <td>
+            <% if room.image.attached? %>
+              <%= image_tag room.image ,size: "100x100", class: "img-thumbnail"%>
+            <% else %>
+              <p>No image available</p>
+            <% end %>
+          </td>
+          <td><%= link_to "Edit", edit_room_path(room), class: "btn btn-primary" %></th>
+          <td><%= button_to "Delete", room, method: :delete, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

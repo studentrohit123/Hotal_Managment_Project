@@ -1,4 +1,5 @@
 class HotelsController < ApplicationController
+  
   before_action :get_hotel , only: [:edit, :update, :destroy]
 
   def index 
@@ -27,14 +28,13 @@ class HotelsController < ApplicationController
 
   def update
     if @hotel.update(hotel_params)
-      redirect_to hotels_path(@hotel), notice: 'Hotel information eas succesfully updadte. '
+      redirect_to hotels_path(@hotel), notice: 'Hotel information was succesfully updadte. '
     else
       render :edit
     end
   end
 
   def destroy
-    byebug
     @hotel.destroy
     redirect_to hotels_path(@hotel), notice: 'Hotel was successfully deleted.'
   end

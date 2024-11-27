@@ -1,0 +1,48 @@
+<%= form_with model: @room do |form| %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :room_number, class: 'mb-2' %>
+      <%= form.text_field :room_number, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :room_type, class: 'mb-2' %>
+      <%= form.text_field :room_type, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :price, class: 'mb-2' %>
+      <%= form.text_field :price, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :capacity, class: 'mb-2' %>
+      <%= form.text_field :capacity, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :hotel_id, "Select Hotel" %>
+      <%= form.collection_select :hotel_id, @hotels, :id, :hotel_names, prompt: "Choose a hotel" %>
+    </div>
+  </div>
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 mt-4">
+    <%= form.submit class: 'btn btn-primary btn-lg rounded-0' %>
+    <%= link_to "Room list", rooms_path, class: "btn btn-outline-primary btn-lg rounded-0"%>
+  </div>
+</div>
+<% end %>
