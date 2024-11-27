@@ -1,0 +1,43 @@
+<h1 class="text-center">New Booking</h1>
+<%= form_with(model: @booking, local: true, html: { class: "form-container" }) do |form| %>
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <div class="form-group form-group-custom">
+        <%= form.label :name, class: 'mb-3' %>
+        <%= form.text_field :name, class: 'form-control form-control-custom' %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group form-group-custom">
+        <%= form.label :age, class: 'mb-3' %>
+        <%= form.text_field :age, class: 'form-control form-control-custom' %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <div class="form-group form-group-custom">
+        <%= form.label :gender %>
+        <%= form.select :gender, Booking.genders.keys.map { |g| [g.humanize, g] }, { prompt: 'Select Gender' }, class: 'form-control form-control-custom' %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group form-group-custom">
+        <%= form.label :contact, class: 'mb-2' %>
+        <%= form.text_field :contact, class: 'form-control form-control-custom' %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <div class="form-group form-group-custom">
+        <%= form.label :date, class: 'mb-2' %>
+        <%= form.date_select :date, {}, { class: 'form-control form-control-custom' } %>
+      </div>
+    </div>
+  </div>
+  <%= form.hidden_field :room_id, value: params[:room_id] %>
+  <div class="actions text-center">
+    <%= form.submit "Room Booking", class: "btn btn-primary btn-lg mb-2 btn-custom" %>
+  </div>
+<% end %>

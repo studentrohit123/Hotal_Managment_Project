@@ -14,7 +14,7 @@
             <% end %>
         </strong><br>
       </li>
-      <%= link_to "Room Details", room_path(room), class: "btn btn-primary" %>
+      <%= link_to 'Booking', new_booking_path(room_id: room.id), class: "btn btn-primary"%>
     <% end %>
   </ul>
 <% else %>

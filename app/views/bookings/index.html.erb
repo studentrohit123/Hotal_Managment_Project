@@ -1,0 +1,34 @@
+<h1>Your Bookings</h1>
+
+<% if @bookings.any? %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Date</th>
+      <th>Action
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.name%></td>
+      <td><%= booking.age%></td>
+      <td><%= booking.gender%>
+      <td><%= booking.date%><td>
+      <%= button_to "Cancel", booking, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p> you have no bookings.</p>
+<% end%>
+ 
+
+<% unless user_signed_in? %>
+  <%= link_to 'Log in to book a ticket', new_user_session_path %>
+<% end %>
