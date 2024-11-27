@@ -9,6 +9,7 @@
         <th>Contect_number</th>
         <th>description</th>
         <th>rating</th> 
+        <th>image</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -21,8 +22,15 @@
           <td><%= hotel.contact_number %></td>
           <td><%= hotel.description %></td>
           <td><%= hotel.rating %></td>
+          <td>
+            <% if hotel.image.attached? %>
+              <%= image_tag hotel.image ,size: "100x100", class: "img-thumbnail"%>
+            <% else %>
+              <p>No image available</p>
+            <% end %>
+          </td>
           <td><%= link_to "Edit", edit_hotel_path(hotel), class: "btn btn-primary" %></th>
-          <td><%= button_to "Delete", Hotel, method: :delete, class:"btn btn-danger" %></td>
+          <td><%= button_to "Delete", hotel, method: :delete, class:"btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>

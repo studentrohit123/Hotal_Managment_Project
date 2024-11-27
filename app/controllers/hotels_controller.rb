@@ -22,6 +22,9 @@ class HotelsController < ApplicationController
     @hotels = Hotel.all
   end
 
+  def show
+  end
+
   def update
     if @hotel.update(hotel_params)
       redirect_to hotels_path(@hotel), notice: 'Hotel information eas succesfully updadte. '
@@ -31,6 +34,7 @@ class HotelsController < ApplicationController
   end
 
   def destroy
+    byebug
     @hotel.destroy
     redirect_to hotels_path(@hotel), notice: 'Hotel was successfully deleted.'
   end
@@ -41,6 +45,6 @@ class HotelsController < ApplicationController
 
   private
   def hotel_params
-    params.require(:hotel).permit(:name, :address, :contact_number, :description, :rating)
+    params.require(:hotel).permit(:name, :address, :contact_number, :description, :rating, :image)
   end
 end
