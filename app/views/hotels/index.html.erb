@@ -1,0 +1,30 @@
+<%= link_to "Add New Hotel", new_hotel_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+<%= link_to "Home", root_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contect_number</th>
+        <th>description</th>
+        <th>rating</th> 
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hotels.each do |hotel| %>
+        <tr>
+          <td><%= hotel.name %></td>
+          <td><%= hotel.address %></td>
+          <td><%= hotel.contact_number %></td>
+          <td><%= hotel.description %></td>
+          <td><%= hotel.rating %></td>
+          <td><%= link_to "Edit", edit_hotel_path(hotel), class: "btn btn-primary" %></th>
+          <td><%= button_to "Delete", Hotel, method: :delete, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

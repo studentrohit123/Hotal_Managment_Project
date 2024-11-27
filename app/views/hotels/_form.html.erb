@@ -1,0 +1,44 @@
+<%= form_with model: @hotel do |form| %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :name, class: 'mb-2' %>
+      <%= form.text_field :name, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :address, class: 'mb-2' %>
+      <%= form.text_field :address, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :contact_number, class: 'mb-2' %>
+      <%= form.text_field :contact_number, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :description, class: 'mb-2' %>
+      <%= form.text_field :description, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :rating, class: 'mb-2' %>
+      <%= form.text_field :rating, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 mt-4">
+    <%= form.submit class: 'btn btn-primary btn-lg rounded-0' %>
+    <%= link_to "Hotel list", hotels_path, class: "btn btn-outline-primary btn-lg rounded-0"%>
+  </div>
+</div>
+<% end %>
