@@ -27,8 +27,6 @@
 <% else %>
   <p> you have no bookings.</p>
 <% end%>
- 
-
 <% unless user_signed_in? %>
   <%= link_to 'Log in to book a ticket', new_user_session_path %>
 <% end %>

@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
 
-  before_action :set_booking, only: [:destroy]
+  before_action :set_booking, only: [:show, :destroy]
 
   def index 
     if current_user
@@ -23,6 +23,15 @@ class BookingsController < ApplicationController
       redirect_to booking_path(@booking)
     else
       render :new
+    end
+  end
+
+  def show
+    if params[:status] == 'success'
+      @booking.update(payment_status: 'paid')
+      flash[:notice] = 'Payment successful!'
+    elsif params[:status] == 'cancel'
+      flash[:alert] = 'Payment canceled!'
     end
   end
 

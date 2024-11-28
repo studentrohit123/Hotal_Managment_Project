@@ -15,6 +15,7 @@
         </strong><br>
       </li>
       <%= link_to 'Booking', new_booking_path(room_id: room.id), class: "btn btn-primary"%>
+      <%= button_to 'Pay with Stripe', checkout_booking_path(room), method: :post %>
     <% end %>
   </ul>
 <% else %>
