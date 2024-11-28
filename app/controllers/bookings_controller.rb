@@ -27,8 +27,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.destroy
-    redirect_to bookings_path,  notice: 'Booking was successfully destroyed.'
+    if @booking.destroy
+      flash[:notice] = 'Booking was successfully destroyed.'
+      redirect_to bookings_path(@booking)
+    else
+      flash[:notice] = 'Booking was not destroyed.'
+    end
   end
   
   private
@@ -36,7 +40,6 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
-  private
 
   def booking_params
     params.require(:booking).permit(:user_id, :room_id, :date, :name, :age, :gender, :contact)
