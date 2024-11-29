@@ -19,5 +19,10 @@ Rails.application.routes.draw do
   end
   resources :hotels
   resources :rooms
-  resources :bookings
+  resources :bookings do 
+    member do 
+      post 'checkout', to: 'payments#checkout'
+    end
+  end
 end
+

@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
 
-  before_action :set_booking, only: [:destroy]
+  before_action :set_booking, only: [:show, :destroy]
 
   def index 
     if current_user
@@ -26,9 +26,22 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    if params[:status] == 'success'
+      @booking.update(payment_status: 'paid')
+      flash[:notice] = 'Payment successful!'
+    elsif params[:status] == 'cancel'
+      flash[:alert] = 'Payment canceled!'
+    end
+  end
+
   def destroy
-    @booking.destroy
-    redirect_to bookings_path,  notice: 'Booking was successfully destroyed.'
+    if @booking.destroy
+      flash[:notice] = 'Booking was successfully destroyed.'
+      redirect_to bookings_path(@booking)
+    else
+      flash[:notice] = 'Booking was not destroyed.'
+    end
   end
   
   private
@@ -36,7 +49,6 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
-  private
 
   def booking_params
     params.require(:booking).permit(:user_id, :room_id, :date, :name, :age, :gender, :contact)
