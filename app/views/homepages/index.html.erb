@@ -1,23 +1,22 @@
-<h2>Hotels</h2>
+<h2 class="heading">Hotels</h2>
 <% if @hotels.any? %>
-  <ul>
+  <div class="hotel-list">
     <% @hotels.each do |hotel| %>
-      <li>
-        <%# <strong>Bus id:</strong> <%= bus.id %>
-        <strong>Hotel Name:</strong> <%= hotel.name %><br>
-        <strong>Hotel Address:</strong> <%= hotel.address %><br>
-        <strong>Contact Number:</strong> <%= hotel.contact_number %><br>
-        <strong>Description:</strong> <%= hotel.description %><br>
-        <strong>Rating:</strong> <%= hotel.rating %><br>
-        <strong>
+      <div class="hotel-card">
         <% if hotel.image.attached? %> 
-              <%= image_tag hotel.image, size: "300x300", class: "img-thumbnail" %>
-            <% end %>
-        </strong><br>
-      </li>
-      <%= link_to "Room Details", room_path(hotel), class: "btn btn-primary" %>
+          <img src="<%= url_for(hotel.image) %>" alt="<%= hotel.name %>" class="hotel-image">
+        <% end %>
+        <div class="hotel-info">
+          <h3 class="hotel-name"><%= hotel.name %></h3>
+          <p class="hotel-address"><%= hotel.address %></p>
+          <p class="hotel-description"><%= truncate(hotel.description, length: 100) %></p>
+          <p class="hotel-rating">Rating: <%= hotel.rating %>/5</p>
+          <p class="hotel-contact">Contact: <%= hotel.contact_number %></p>
+          <%= link_to "View Details", room_path(hotel), class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
-  <p>No Hotels available.</p>
+  <p class="no-hotels">No Hotels available.</p>
 <% end %>
