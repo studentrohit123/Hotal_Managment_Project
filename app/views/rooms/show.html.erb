@@ -1,23 +1,30 @@
-<h2>Rooms</h2>
+<h2 class="rooms-heading">Rooms</h2>
+
 <% if @rooms.any? %>
-  <ul>
+  <div class="rooms-container">
     <% @rooms.each do |room| %>
-      <li>
-        <%# <strong>Bus id:</strong> <%= bus.id %>
-        <strong>Room Number:</strong> <%= room.room_number %><br>
-        <strong>Room Type:</strong> <%= room.room_type %><br>
-        <strong>Price:</strong> <%= room.price %><br>
-        <strong>Capacity:</strong> <%= room.capacity %><br>
-        <strong>
-        <% if room.image.attached? %> 
-              <%= image_tag room.image, size: "300x300", class: "img-thumbnail" %>
-            <% end %>
-        </strong><br>
-      </li>
-      <%= link_to 'Booking', new_booking_path(room_id: room.id), class: "btn btn-primary"%>
-      <%= button_to 'Pay with Stripe', checkout_booking_path(room), method: :post %>
+      <div class="room-card">
+        <%# Room Image %>
+        <div class="room-image">
+          <% if room.image.attached? %>
+            <%= image_tag room.image, size: "300x200", class: "img-fluid" %>
+          <% end %>
+        </div>
+
+        <div class="room-info">
+          <h3 class="room-title">Room Number: <%= room.room_number %></h3>
+          <p><strong>Room Type:</strong> <%= room.room_type %></p>
+          <p><strong>Price:</strong> ₹<%= room.price %></p>
+          <p><strong>Capacity:</strong> <%= room.capacity %> persons</p>
+
+          <div class="room-actions">
+            <%= link_to 'Booking', new_booking_path(room_id: room.id), class: "btn btn-booking" %>
+            <%= button_to 'Pay with Stripe', checkout_booking_path(room), method: :post, class: 'btn btn-pay' %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
-  <p>No room available.</p>
+  <p>No rooms available.</p>
 <% end %>
