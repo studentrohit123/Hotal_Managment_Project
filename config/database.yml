@@ -83,3 +83,4 @@ production:
   database: hotal_managment_project_production
   username: hotal_managment_project
   password: <%= ENV["HOTAL_MANAGMENT_PROJECT_DATABASE_PASSWORD"] %>
+
