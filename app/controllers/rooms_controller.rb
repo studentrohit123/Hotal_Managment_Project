@@ -62,8 +62,8 @@ class RoomsController < ApplicationController
   def get_room
     @room = Room.find(params[:id])
   end
-  
+
   def room_params
-    params.require(:room).permit(:room_number, :room_type, :price, :capacity, :hotel_id, :image)
+    params.require(:room).permit(:number, :ac_type, :price, :capacity, :hotel_id, :image)
   end
 end

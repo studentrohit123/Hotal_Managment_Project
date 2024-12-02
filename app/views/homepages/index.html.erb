@@ -11,7 +11,7 @@
           <p class="hotel-address"><%= hotel.address %></p>
           <p class="hotel-description"><%= truncate(hotel.description, length: 100) %></p>
           <p class="hotel-rating">Rating: <%= hotel.rating %>/5</p>
-          <p class="hotel-contact">Contact: <%= hotel.contact_number %></p>
+          <p class="hotel-contact">Contact: <%= hotel.number %></p>
           <%= link_to "View Details", room_path(hotel), class: "btn btn-primary" %>
         </div>
       </div>

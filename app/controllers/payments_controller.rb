@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
       unit_amount: (room.price * 100).to_i, 
       currency: 'inr',
       product_data: {
-        name: room.room_type
+        name: room.ac_type
       }
     )
   
