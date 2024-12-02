@@ -2,9 +2,9 @@ class RoomsController < ApplicationController
   
   before_action :get_room, only: [:edit, :update, :destroy]
 
-  before_action :set_hotel, only: [:new, :edit]
+  before_action :list_all_hotels, only: [:new, :edit]
 
-  before_action :set_room, only: [:index, :edit]
+  before_action :list_all_rooms, only: [:index, :edit]
   
   def index
   end
@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      flash[:notice] = "Room information was successfully create"
+      flash[:notice] = 'Room information was successfully create.'
       redirect_to rooms_path(@room)
     else
       render :new
@@ -33,7 +33,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      flash[:notice] = 'Room information was succesfully updadte. '
+      flash[:notice] = 'Room information was succesfully updadte.'
       redirect_to rooms_path(@room)
     else
       render :edit 
@@ -51,18 +51,18 @@ class RoomsController < ApplicationController
 
   private
 
-  def set_room
+  def list_all_rooms
     @rooms = Room.all
+  end
+
+  def list_all_hotels
+    @hotels = Hotel.all
   end
 
   def get_room
     @room = Room.find(params[:id])
   end
-
-  def set_hotel
-    @hotels = Hotel.all
-  end
-
+  
   def room_params
     params.require(:room).permit(:room_number, :room_type, :price, :capacity, :hotel_id, :image)
   end

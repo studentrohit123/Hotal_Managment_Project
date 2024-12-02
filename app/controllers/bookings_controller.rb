@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
 
-  before_action :set_booking, only: [:show, :destroy]
+  before_action :get_booking, only: [:show, :destroy]
 
   def index 
     if current_user
@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
   
   private
   
-  def set_booking
+  def get_booking
     @booking = Booking.find(params[:id])
   end
 
