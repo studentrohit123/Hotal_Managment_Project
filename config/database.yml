@@ -84,3 +84,4 @@ production:
   username: hotal_managment_project
   # password: <%= ENV["HOTAL_MANAGMENT_PROJECT_DATABASE_PASSWORD"] %>
   url: <%= ENV["HOTAL_MANAGMENT_PROJECT_DATABASE_PASSWORD"] %>
+
