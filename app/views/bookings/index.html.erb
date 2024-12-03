@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Age</th>
-      <th>Gender</th>
+      <th>Hotel</th>
+      <th>Number</th>
       <th>Date</th>
       <th>Action
     </tr>
@@ -16,8 +16,8 @@
     <% @bookings.each do |booking| %>
     <tr>
       <td><%= booking.name%></td>
-      <td><%= booking.age%></td>
-      <td><%= booking.gender%>
+      <td><%= booking.room.hotel.name%></td>
+      <td><%= booking.room.number%>
       <td><%= booking.date%><td>
       <%= button_to "Cancel", booking, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
     </tr>

@@ -32,6 +32,8 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Payment successful!'
     elsif params[:status] == 'cancel'
       flash[:alert] = 'Payment canceled!'
+    elsif current_user
+      @booking = current_user.bookings
     end
   end
 

@@ -1,1 +1,30 @@
-<h1> Room has been successfully booked</h1>
+<h1>Your Bookings</h1>
+
+<% if @booking.any? %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hotel</th>
+      <th>Number</th>
+      <th>Date</th>
+      <th>Action
+    </tr>
+  </thead>
+  <tbody>
+    <% @booking.each do |booking| %>
+    <tr>
+      <td><%= booking.name%></td>
+      <td><%= booking.room.hotel.name%></td>
+      <td><%= booking.room.number%>
+      <td><%= booking.date%><td>
+      <%= button_to "Cancel", booking, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p> you have no bookings.</p>
+<% end%>
+
