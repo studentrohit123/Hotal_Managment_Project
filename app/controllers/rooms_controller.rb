@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   
   before_action :get_room, only: [:edit, :update, :destroy]
 
-  before_action :list_all_hotels, only: [:new, :edit]
+  before_action :list_all_hotels, only: [:new, :create, :edit, :update]
 
   before_action :list_all_rooms, only: [:index, :edit]
   

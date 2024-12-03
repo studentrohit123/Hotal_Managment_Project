@@ -1,12 +1,12 @@
 Booking Confirmation
 
-Hello <%= @user.id %>,
+Hello <%= @booking.name %>,
 
 Thank you for booking with us! Your booking has been confirmed for the following room:
 
-Name: <%= @booking.name %>
-Age: <%= @booking.age%>
-Contact: <%= @booking.contact %>
+Hotel: <%= @booking.room.hotel.name %>
+Room Number: <%= @booking.room.number %>
+Contact: <%=  @booking.room.hotel.number %>
 Date: <%= @booking.date %>
 
 We look forward to welcoming you!

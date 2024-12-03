@@ -1,12 +1,12 @@
 <h1>Booking Confirmation</h1>
 
-<p>Hello <%= @user.id %>,</p>
+<p>Hello <%= @booking.name %>,</p>
 
 <p>Thank you for booking with us! Your booking has been confirmed for the following room:</p>
 
-<p><strong>Name:</strong> <%= @booking.name %></p>
-<p><strong>Age:</strong> <%= @booking.age %></p>
-<p><strong>Contact:</strong> <%= @booking.contact %></p>
+<p><strong>Hotel:</strong> <%= @booking.room.hotel.name %></p>
+<p><strong>Room Number : </strong> <%= @booking.room.number %></p>
+<p><strong>Contact:</strong> <%= @booking.room.hotel.number %></p>
 <p><strong>Date:</strong> <%= @booking.date %></p>
 
 <p>We look forward to welcoming you!</p>
