@@ -7,5 +7,4 @@ class Room < ApplicationRecord
   validates :ac_type, presence: true, inclusion: { in: ['AC', 'Non-AC'] }
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :capacity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-
 end

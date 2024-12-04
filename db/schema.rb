@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_03_130027) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_04_084803) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,7 +97,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_03_130027) do
   create_table "rooms", force: :cascade do |t|
     t.string "number"
     t.string "ac_type"
-    t.decimal "price"
+    t.integer "price"
     t.integer "capacity"
     t.bigint "hotel_id", null: false
     t.datetime "created_at", null: false
