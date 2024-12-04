@@ -11,8 +11,4 @@ class Hotel < ApplicationRecord
   def hotel_names
     "#{name}"
   end
-
-  def self.ransackable_attributes(auth_object = nil)
-    %w[rooms]
-  end
 end
