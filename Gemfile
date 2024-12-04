@@ -64,3 +64,7 @@ gem 'devise'
 gem 'stripe'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'activeadmin'
+
+gem 'sass-rails', '>= 5'
