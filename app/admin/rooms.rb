@@ -1,6 +1,5 @@
 ActiveAdmin.register Room do
   config.filters = false
-
   permit_params :number, :ac_type, :price, :capacity, :hotel_id, :image
   
   index do
