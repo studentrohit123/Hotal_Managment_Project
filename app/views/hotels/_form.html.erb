@@ -1,4 +1,14 @@
 <%= form_with model: @hotel do |form| %>
+<% if @hotel.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@hotel.errors.count, "error") %> prohibited this booking from being saved:</h2>
+    <ul>
+      <% @hotel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="row">
   <div class="col-lg-4">
     <div class="form-group">
@@ -16,8 +26,8 @@
 <div class="row">
   <div class="col-lg-4">
     <div class="form-group">
-      <%= form.label :contact_number, class: 'mb-2' %>
-      <%= form.text_field :contact_number, class: 'form-control form-control-lg rounded-0' %>
+      <%= form.label :number, class: 'mb-2' %>
+      <%= form.text_field :number, class: 'form-control form-control-lg rounded-0' %>
     </div>
   </div>
   <div class="col-lg-4">

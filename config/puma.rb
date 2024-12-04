@@ -33,4 +33,4 @@ plugin :tmp_restart
 # In other environments, only set the PID file if requested.
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
 
-bind "tcp://0.0.0.0:#{ENV.fetch("PORT", 3000)}"
+# bind "tcp://0.0.0.0:#{ENV.fetch("PORT", 3000)}"
